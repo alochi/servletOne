@@ -1,21 +1,25 @@
 package ru.innopolis.stc9.servlets.pojo;
 
+import java.util.Date;
+
 /**
  * Created by admin on 25.04.2018.
  */
 public class Progress {
     private int id;
-    private int students_id;
-    private int exercises_id;
+    private String students_name;
+    private String exercises_name;
     private int mark;
     private boolean attendance;
+    private Date date;
 
-    public Progress(int id, int students_id, int exercises_id, int mark, boolean attendance) {
+    public Progress(int id, String students_name, String exercises_name, int mark, boolean attendance, Date date) {
         this.id = id;
-        this.students_id = students_id;
-        this.exercises_id = exercises_id;
+        this.students_name = students_name;
+        this.exercises_name = exercises_name;
         this.mark = mark;
         this.attendance = attendance;
+        this.date = date;
     }
 
     public int getId() {
@@ -26,20 +30,20 @@ public class Progress {
         this.id = id;
     }
 
-    public int getStudents_id() {
-        return students_id;
+    public String getStudents_name() {
+        return students_name;
     }
 
-    public void setStudents_id(int students_id) {
-        this.students_id = students_id;
+    public void setStudents_name(String students_name) {
+        this.students_name = students_name;
     }
 
-    public int getExercises_id() {
-        return exercises_id;
+    public String getExercises_name() {
+        return exercises_name;
     }
 
-    public void setExercises_id(int exercises_id) {
-        this.exercises_id = exercises_id;
+    public void setExercises_name(String exercises_name) {
+        this.exercises_name = exercises_name;
     }
 
     public int getMark() {
@@ -56,5 +60,13 @@ public class Progress {
 
     public void setAttendance(boolean attendance) {
         this.attendance = attendance;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

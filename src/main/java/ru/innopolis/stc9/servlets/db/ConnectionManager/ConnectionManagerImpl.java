@@ -17,7 +17,7 @@ public class ConnectionManagerImpl implements ConnectionManager{
         return connectionManager;
     }
 
-    public ConnectionManagerImpl() {
+    private ConnectionManagerImpl() {
     }
 
     @Override

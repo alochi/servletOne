@@ -28,7 +28,7 @@ public class StudentsDAOImpl implements StudentsDAO {
 
     @Override
     public Students getStudentById(int id) throws SQLException {
-        Connection connection = new ConnectionManagerImpl().getConnection();
+        Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT * " +
                 "FROM students WHERE id = ?");
         statement.setInt(1, id);

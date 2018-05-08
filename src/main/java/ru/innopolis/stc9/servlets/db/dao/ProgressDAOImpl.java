@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by admin on 25.04.2018.
@@ -16,51 +17,30 @@ public class ProgressDAOImpl implements ProgressDAO {
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();
 
     @Override
-    public void addProgress(Progress progress) throws SQLException {
+    public ArrayList<Progress> getMark(int mark) throws SQLException {
+        ArrayList<Progress> result = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO progress (id, students_id, exercises_id, mark, attendance) " +
-                "VALUES (?, ?, ?, ?, ?)");
-        statement.setInt(1, progress.getId());
-        statement.setInt(2, progress.getStudents_id());
-        statement.setInt(3, progress.getExercises_id());
-        statement.setInt(4, progress.getMark());
-        statement.setBoolean(5, progress.isAttendance());
-        statement.execute();
-        connection.close();
-    }
-
-    @Override
-    public Progress getProgressById(int id) throws SQLException {
-        Connection connection = connectionManager.getConnection();
-        PreparedStatement statement = connection.prepareStatement("SELECT * " +
-                "FROM progress WHERE id = ?");
-        statement.setInt(1, id);
+        PreparedStatement statement = connection.prepareStatement("SELECT " +
+                "progress.id, mark, attendance, s2.name stud, e3.exercise exer, date " +
+                "FROM progress " +
+                "INNER JOIN students s2 ON progress.students_id = s2.id " +
+                "INNER JOIN exercises e3 ON progress.exercises_id = e3.id " +
+                "WHERE mark = ?");
+        statement.setInt(1, mark);
         ResultSet resultSet = statement.executeQuery();
         Progress progress = null;
-        if (resultSet.next()) {
+        while (resultSet.next()) {
             progress = new Progress(
                     resultSet.getInt("id"),
-                    resultSet.getInt("students_id"),
-                    resultSet.getInt("exercises_id"),
+                    resultSet.getString("stud"),
+                    resultSet.getString("exer"),
                     resultSet.getInt("mark"),
-                    resultSet.getBoolean("attendance"));
+                    resultSet.getBoolean("attendance"),
+                    resultSet.getDate("date"));
+            result.add(progress);
         }
         connection.close();
-        return progress;
-    }
-
-    @Override
-    public void updateProgress(Progress progress) throws SQLException {
-        Connection connection = connectionManager.getConnection();
-        PreparedStatement statement = connection.prepareStatement("UPDATE progress " +
-                "SET students_id = ?, exercises_id = ?, mark = ?, attendance = ?  WHERE id = ?");
-        statement.setInt(1, progress.getStudents_id());
-        statement.setInt(2, progress.getExercises_id());
-        statement.setInt(3, progress.getMark());
-        statement.setBoolean(4, progress.isAttendance());
-        statement.setInt(5, progress.getId());
-        statement.execute();
-        connection.close();
+        return result;
     }
 
     @Override
