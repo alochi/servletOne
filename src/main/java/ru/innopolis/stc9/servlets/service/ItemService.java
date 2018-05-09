@@ -2,10 +2,7 @@ package ru.innopolis.stc9.servlets.service;
 
 import ru.innopolis.stc9.servlets.db.dao.ProgressDAO;
 import ru.innopolis.stc9.servlets.db.dao.ProgressDAOImpl;
-import ru.innopolis.stc9.servlets.db.dao.StudentsDAO;
-import ru.innopolis.stc9.servlets.db.dao.StudentsDAOImpl;
 import ru.innopolis.stc9.servlets.pojo.Progress;
-import ru.innopolis.stc9.servlets.pojo.Students;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

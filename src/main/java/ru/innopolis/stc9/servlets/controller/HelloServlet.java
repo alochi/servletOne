@@ -1,7 +1,7 @@
-package ru.innopolis.stc9.servlets.servlet;
+package ru.innopolis.stc9.servlets.controller;
 
+import org.apache.log4j.Logger;
 import ru.innopolis.stc9.servlets.pojo.Progress;
-import ru.innopolis.stc9.servlets.pojo.Students;
 import ru.innopolis.stc9.servlets.service.ItemService;
 
 import javax.servlet.ServletException;
@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class HelloServlet extends HttpServlet {
+    final static Logger LOGGER = Logger.getLogger(HelloServlet.class);
     private ItemService itemService = new ItemService();
 
     @Override
@@ -20,13 +21,16 @@ public class HelloServlet extends HttpServlet {
         if (mark != null) {
             ArrayList<Progress> progresses = itemService.getStudentById(Integer.parseInt(mark));
             for (Progress progress : progresses) {
-                resp.getWriter().println(progress.getStudents_name() + ", " +
-                        progress.getExercises_name() + ", " +
-                        progress.getDate());
+                String result = progress.getStudents_name() + ", " +
+                        progress.getSubject() + ": (" +
+                        progress.getExercises_name() + "), " +
+                        progress.getDate();
+                resp.getWriter().println(result);
+                LOGGER.info("HelloServlet doGet, Mark:" + mark + " (" + result + ")");
             }
-
         } else {
             resp.getWriter().println("Nothing");
+            LOGGER.info("HelloServlet doGet, Mark: null - (Nothing)");
         }
     }
 }

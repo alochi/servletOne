@@ -12,14 +12,16 @@ public class Progress {
     private int mark;
     private boolean attendance;
     private Date date;
+    private String subject;
 
-    public Progress(int id, String students_name, String exercises_name, int mark, boolean attendance, Date date) {
+    public Progress(int id, String students_name, String exercises_name, int mark, boolean attendance, Date date, String subject) {
         this.id = id;
         this.students_name = students_name;
         this.exercises_name = exercises_name;
         this.mark = mark;
         this.attendance = attendance;
         this.date = date;
+        this.subject = subject;
     }
 
     public int getId() {
@@ -68,5 +70,13 @@ public class Progress {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

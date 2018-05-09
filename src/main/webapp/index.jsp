@@ -11,6 +11,9 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <p>
+    Добро пожаловать в систему!<br>
+    <a href="/dekanat/login">Войти</a>
+  </p>
   </body>
 </html>
