@@ -3,6 +3,7 @@ package ru.innopolis.stc9.servlets.controller;
 import org.apache.log4j.Logger;
 import ru.innopolis.stc9.servlets.pojo.Progress;
 import ru.innopolis.stc9.servlets.service.ItemService;
+import ru.innopolis.stc9.servlets.service.ItemServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class HelloServlet extends HttpServlet {
     final static Logger LOGGER = Logger.getLogger(HelloServlet.class);
-    private ItemService itemService = new ItemService();
+    private ItemService itemService = new ItemServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

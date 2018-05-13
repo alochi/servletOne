@@ -16,7 +16,8 @@ public class UsersDAOImpl implements UsersDAO {
     public Users getUserByLogin(String login) throws SQLException {
         Users result = null;
         Connection connection = connectionManager.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * " +
+        PreparedStatement preparedStatement = null;
+        preparedStatement = connection.prepareStatement("SELECT * " +
                 "FROM users " +
                 "WHERE login=?");
         preparedStatement.setString(1, login);
