@@ -18,7 +18,7 @@ public class LoginController extends HttpServlet {
         if ("logout".equals(action)) {
             req.getSession().invalidate();
         }
-        req.setAttribute("message", "Hello!");
+        //req.setAttribute("message", "Hello!");
         req.getRequestDispatcher("login.jsp").forward(req, resp);
     }
 

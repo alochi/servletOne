@@ -79,4 +79,15 @@ public class Progress {
     public void setSubject(String subject) {
         this.subject = subject;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id +
+                ", students_name='" + students_name + '\'' +
+                ", exercises_name='" + exercises_name + '\'' +
+                ", mark=" + mark +
+                ", attendance=" + attendance +
+                ", date=" + date +
+                ", subject='" + subject + '\'';
+    }
 }

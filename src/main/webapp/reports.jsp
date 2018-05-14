@@ -1,4 +1,7 @@
+<%@ page import="ru.innopolis.stc9.servlets.pojo.Progress" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <%@include file="header.jsp" %>
 <!-- BEGIN CONTENT -->
 <div class="page-container row-fluid">
@@ -19,17 +22,23 @@
                 <h3>User content...</h3>
                 <form action="${pageContext.request.contextPath}/inner/reports" method="get">
                     <p><select name="mark">
-                        <option disabled>Выберите оценку</option>
-                        <option selected value="5">Отлично</option>
-                        <option value="4">Хорошо</option>
-                        <option value="3">Посредственно</option>
-                        <option value="2">Плохо</option>
-                        <option value="0">Нет оценок</option>
+                        <option disabled>Select mark</option>
+                        <option selected value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="0">Without mark</option>
                     </select></p>
-                    <p><input type="submit" value="Отправить"></p>
+                    <p><input type="submit" value="Send"></p>
                 </form>
-                <%=("5".equals(request.getParameter("mark")))?"5":""%>
 
+                <table>
+                <c:forEach var="mark" items="${mark}">
+                    <tr>
+                        <td><c:out value="${mark}" /></td>
+                    </tr>
+                </c:forEach>
+                </table>
 
 
             </div>

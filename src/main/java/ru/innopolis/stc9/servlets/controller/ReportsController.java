@@ -18,8 +18,6 @@ public class ReportsController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/reports.jsp").forward(req, resp);
-
         String mark = req.getParameter("mark");
         if (mark != null) {
             ArrayList<Progress> progresses = itemService.getStudentById(Integer.parseInt(mark));
@@ -28,12 +26,15 @@ public class ReportsController extends HttpServlet {
                         progress.getSubject() + ": (" +
                         progress.getExercises_name() + "), " +
                         progress.getDate();
-                resp.getWriter().println(result);
-                LOGGER.info("Mark:" + mark + " (" + result + ")");
+                //req.setAttribute ("mark", result);
+                //LOGGER.info("Mark:" + mark + " (" + result + ")");
             }
+            req.setAttribute ("mark", progresses);
         } else {
-            resp.getWriter().println("Nothing");
-            LOGGER.info("Mark: null - (Nothing)");
+            req.setAttribute ("mark", "Nothing");
+            //LOGGER.info("Mark: null - (Nothing)");
         }
+
+        req.getRequestDispatcher("/reports.jsp").forward(req, resp);
     }
 }
