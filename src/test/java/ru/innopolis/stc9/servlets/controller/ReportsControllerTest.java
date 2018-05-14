@@ -1,7 +1,6 @@
 package ru.innopolis.stc9.servlets.controller;
 
 import org.junit.*;
-import ru.innopolis.stc9.servlets.controller.HelloServlet;
 
 import static org.mockito.Mockito.*;
 
@@ -10,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class HelloServletTest {
-    private HelloServlet helloServlet;
+public class ReportsControllerTest {
+    private ReportsController reportsController;
 
     @Before
     public void before(){
-        this.helloServlet = new HelloServlet();
+        this.reportsController = new ReportsController();
     }
 
     @Test
@@ -34,7 +33,7 @@ public class HelloServletTest {
         try {
             when(httpServletResponse.getWriter().toString()).thenReturn("Nothing");
             // Как тут проверить правильно? Метож ничего не вовращает, соотвтественно с чем сверить?
-            this.helloServlet.doGet(httpServletRequest, httpServletResponse);
+            this.reportsController.doGet(httpServletRequest, httpServletResponse);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {

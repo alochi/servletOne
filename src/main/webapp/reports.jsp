@@ -17,6 +17,20 @@
                     <br>
                 <%}%>
                 <h3>User content...</h3>
+                <form action="${pageContext.request.contextPath}/inner/reports" method="get">
+                    <p><select name="mark">
+                        <option disabled>Выберите оценку</option>
+                        <option selected value="5">Отлично</option>
+                        <option value="4">Хорошо</option>
+                        <option value="3">Посредственно</option>
+                        <option value="2">Плохо</option>
+                        <option value="0">Нет оценок</option>
+                    </select></p>
+                    <p><input type="submit" value="Отправить"></p>
+                </form>
+                <%=("5".equals(request.getParameter("mark")))?"5":""%>
+
+
 
             </div>
             <!-- END PAGE TITLE -->
