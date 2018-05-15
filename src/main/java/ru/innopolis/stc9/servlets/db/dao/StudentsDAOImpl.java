@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by admin on 24.04.2018.
@@ -27,20 +28,21 @@ public class StudentsDAOImpl implements StudentsDAO {
     }
 
     @Override
-    public Students getStudentById(int id) throws SQLException {
+    public ArrayList<Students> getStudents() throws SQLException {
+        ArrayList<Students> result = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT * " +
-                "FROM students WHERE id = ?");
-        statement.setInt(1, id);
+                "FROM students");
         ResultSet resultSet = statement.executeQuery();
         Students student = null;
-        if (resultSet.next()) {
+        while (resultSet.next()) {
             student = new Students(
                     resultSet.getInt("id"),
                     resultSet.getString("name"));
+            result.add(student);
         }
         connection.close();
-        return student;
+        return result;
     }
 
     @Override

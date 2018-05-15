@@ -11,7 +11,7 @@ public class ItemServiceImpl implements ItemService {
     private ProgressDAO progressDAO = new ProgressDAOImpl();
 
     @Override
-    public ArrayList<Progress> getStudentById(int mark) {
+    public ArrayList<Progress> getMarkById(int mark) {
         try {
             return progressDAO.getMark(mark);
         } catch (SQLException e) {

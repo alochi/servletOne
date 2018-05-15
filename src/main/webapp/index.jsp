@@ -1,19 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: admin
-  Date: 07.05.2018
-  Time: 12:12
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  <p>
-    Добро пожаловать в систему!<br>
-    <a href="/dekanat/login">Войти</a>
-  </p>
-  </body>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8" />
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="assets/css/webarch.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body class="error-body no-top">
+<div class="container">
+  <div class="row login-container column-seperation">
+    <div class="col-md-4">
+      <p>
+        Добро пожаловать в систему!<br><br>
+        <a href="/dekanat/login">ВОЙТИ</a>
+      </p>
+    </div>
+  </div>
+</div>
+</body>
 </html>

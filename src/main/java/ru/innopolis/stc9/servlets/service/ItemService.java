@@ -5,5 +5,5 @@ import ru.innopolis.stc9.servlets.pojo.Progress;
 import java.util.ArrayList;
 
 public interface ItemService {
-    ArrayList<Progress> getStudentById(int mark);
+    ArrayList<Progress> getMarkById(int mark);
 }

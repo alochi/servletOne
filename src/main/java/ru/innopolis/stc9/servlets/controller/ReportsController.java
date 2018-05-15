@@ -20,7 +20,7 @@ public class ReportsController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String mark = req.getParameter("mark");
         if (mark != null) {
-            ArrayList<Progress> progresses = itemService.getStudentById(Integer.parseInt(mark));
+            ArrayList<Progress> progresses = itemService.getMarkById(Integer.parseInt(mark));
             for (Progress progress : progresses) {
                 String result = progress.getStudents_name() + ", " +
                         progress.getSubject() + ": (" +

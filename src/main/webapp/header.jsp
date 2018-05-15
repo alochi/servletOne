@@ -24,26 +24,10 @@
                     </a>
                 </li>
             </ul>
-            <!-- BEGIN LOGO -->
-            <a href="index.html">
-                <img src="../assets/img/logo.png" class="logo" alt="" data-src="../assets/img/logo.png"
-                     data-src-retina="../assets/img/logo2x.png" width="106" height="21"/>
-            </a>
-            <!-- END LOGO -->
             <ul class="nav pull-right notifcation-center">
                 <li class="dropdown hidden-xs hidden-sm">
                     <a href="index.html" class="dropdown-toggle active" data-toggle="">
                         <i class="material-icons">home</i>
-                    </a>
-                </li>
-                <li class="dropdown hidden-xs hidden-sm">
-                    <a href="email.html" class="dropdown-toggle">
-                        <i class="material-icons">email</i><span class="badge bubble-only"></span>
-                    </a>
-                </li>
-                <li class="dropdown visible-xs visible-sm">
-                    <a href="#" data-webarch="toggle-right-side">
-                        <i class="material-icons">chat</i>
                     </a>
                 </li>
             </ul>
@@ -61,27 +45,7 @@
                 </ul>
                 <ul class="nav quick-section">
                     <li class="quicklinks  m-r-10">
-                        <a href="#" class="">
-                            <i class="material-icons">refresh</i>
-                        </a>
-                    </li>
-                    <li class="quicklinks">
-                        <a href="#" class="">
-                            <i class="material-icons">apps</i>
-                        </a>
-                    </li>
-                    <li class="quicklinks"><span class="h-seperate"></span></li>
-                    <li class="quicklinks">
-                        <a href="#" class="" id="my-task-list" data-placement="bottom" data-content=''
-                           data-toggle="dropdown" data-original-title="Notifications">
-                            <i class="material-icons">notifications_none</i>
-                            <span class="badge badge-important bubble-only"></span>
-                        </a>
-                    </li>
-                    <li class="m-r-10 input-prepend inside search-form no-boarder">
-                        <span class="add-on"> <i class="material-icons">search</i></span>
-                        <input name="" type="text" class="no-boarder " placeholder="Search Dashboard"
-                               style="width:250px;">
+                        Система обнаружения оценок
                     </li>
                 </ul>
             </div>
