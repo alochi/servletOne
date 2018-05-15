@@ -19,6 +19,8 @@ public class StudentsController extends HttpServlet {
         ArrayList<Students> students = studentsService.getStudentsById();
         req.setAttribute("students", students);
 
-        req.getRequestDispatcher("/sidebar.jsp").forward(req, resp);
+        req.getRequestDispatcher("/reportStudents.jsp").forward(req, resp);
     }
+
+
 }

@@ -19,15 +19,17 @@
         </div>
         <!-- END MINI-PROFILE -->
         <!-- BEGIN SIDEBAR MENU -->
-        <p class="menu-title sm">STUDENTS <span class="pull-right"><a href="javascript:;"><i class="material-icons">refresh</i></a></span>
+        <p class="menu-title sm">STUDENTS <span class="pull-right">
+            <a href="${pageContext.request.contextPath}/inner/students">
+                <i class="material-icons">refresh</i>
+            </a></span>
         </p>
 
-
-        <% ArrayList<Students> students = (ArrayList) request.getAttribute("students");%>
-        <div>
-                <%=students%>
-        </div>
-
+        <p class="menu-title sm">MARKs <span class="pull-right">
+            <a href="${pageContext.request.contextPath}/inner/mark">
+                <i class="material-icons">refresh</i>
+            </a></span>
+        </p>
 
         <div class="clearfix"></div>
         <!-- END SIDEBAR MENU -->

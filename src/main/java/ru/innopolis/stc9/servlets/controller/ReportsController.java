@@ -35,6 +35,6 @@ public class ReportsController extends HttpServlet {
             //LOGGER.info("Mark: null - (Nothing)");
         }
 
-        req.getRequestDispatcher("/reports.jsp").forward(req, resp);
+        req.getRequestDispatcher("/reportMark.jsp").forward(req, resp);
     }
 }

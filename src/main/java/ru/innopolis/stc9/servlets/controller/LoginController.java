@@ -22,6 +22,16 @@ public class LoginController extends HttpServlet {
         req.getRequestDispatcher("login.jsp").forward(req, resp);
     }
 
+
+    /**
+     *
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     * После успешной инициализации попадаем на страницу с обзором оценок, сейчас это все что доступно для простого
+     * пользователя, тогда как админу доступен сайдбар, где он может попасть на страницу редактирования студентов и т.д
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String login = req.getParameter("userName");
@@ -30,7 +40,7 @@ public class LoginController extends HttpServlet {
             Integer role = userService.getRole(login);
             req.getSession().setAttribute("login", login);
             req.getSession().setAttribute("role", role);
-            resp.sendRedirect(req.getContextPath() + "/inner/reports");
+            resp.sendRedirect(req.getContextPath() + "/inner/mark");
         } else {
             resp.sendRedirect(req.getContextPath() + "/login?errorMsg=authError");
         }

@@ -1,6 +1,4 @@
-<%@ page import="ru.innopolis.stc9.servlets.pojo.Progress" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%@include file="header.jsp" %>
 <!-- BEGIN CONTENT -->
@@ -16,11 +14,17 @@
             <!-- BEGIN PAGE TITLE -->
             <div class="page-title">
                 <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
-                    <h3>ADMIN Dashboard</h3>
-                    <br>
+                <h3>ADMIN Dashboard</h3>
+
+                <% ArrayList<Students> students = (ArrayList) request.getAttribute("students");%>
+                <div>
+                    <%=students%>
+                </div>
+
+                <br>
                 <%}%>
                 <h3>User content...</h3>
-                <form action="${pageContext.request.contextPath}/inner/reports" method="get">
+                <form action="${pageContext.request.contextPath}/inner/mark" method="get">
                     <p><select name="mark">
                         <option disabled>Select mark</option>
                         <option selected value="5">5</option>
@@ -33,11 +37,11 @@
                 </form>
 
                 <table>
-                <c:forEach var="mark" items="${mark}">
-                    <tr>
-                        <td><c:out value="${mark}" /></td>
-                    </tr>
-                </c:forEach>
+                    <c:forEach var="mark" items="${mark}">
+                        <tr>
+                            <td><c:out value="${mark}" /></td>
+                        </tr>
+                    </c:forEach>
                 </table>
 
 
