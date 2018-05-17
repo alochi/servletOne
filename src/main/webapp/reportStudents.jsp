@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@include file="header.jsp" %>
 <!-- BEGIN CONTENT -->
@@ -16,9 +17,15 @@
                 <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
                 <h3>ADMIN Dashboard</h3>
 
-                <% ArrayList<Students> students = (ArrayList) request.getAttribute("students");%>
+                <% //ArrayList<Students> students = (ArrayList) request.getAttribute("students");%>
                 <div>
-                    <%=students%>
+                    <table border="0">
+                        <c:forEach items="${students}" var="stud">
+                            <tr>
+                                <td>${stud.name}</td>
+                            </tr>
+                        </c:forEach>
+                    </table>
                 </div>
 
                 <br>

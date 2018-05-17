@@ -16,11 +16,14 @@ public class StudentsController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ArrayList<Students> students = studentsService.getStudentsById();
+        ArrayList<Students> students = studentsService.getStudents();
         req.setAttribute("students", students);
 
         req.getRequestDispatcher("/reportStudents.jsp").forward(req, resp);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+    }
 }

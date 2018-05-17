@@ -12,5 +12,4 @@ public interface StudentsDAO {
     void addStudent(Students student) throws SQLException;
     ArrayList<Students> getStudents() throws SQLException;
     void updateStudent(Students student) throws SQLException;
-    void deleteStudentById(int id) throws SQLException;
 }

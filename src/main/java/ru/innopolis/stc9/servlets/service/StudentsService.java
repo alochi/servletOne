@@ -5,5 +5,6 @@ import ru.innopolis.stc9.servlets.pojo.Students;
 import java.util.ArrayList;
 
 public interface StudentsService {
-    ArrayList<Students> getStudentsById();
+    ArrayList<Students> getStudents();
+    void editStudent(Students student);
 }

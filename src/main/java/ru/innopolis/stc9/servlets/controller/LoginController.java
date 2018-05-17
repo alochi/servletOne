@@ -18,19 +18,18 @@ public class LoginController extends HttpServlet {
         if ("logout".equals(action)) {
             req.getSession().invalidate();
         }
-        //req.setAttribute("message", "Hello!");
+
         req.getRequestDispatcher("login.jsp").forward(req, resp);
     }
 
 
     /**
-     *
+     * После успешной инициализации попадаем на страницу с обзором оценок, сейчас это все что доступно для простого
+     * пользователя, тогда как админу доступен сайдбар, где он может попасть на страницу редактирования студентов и т.д
      * @param req
      * @param resp
      * @throws ServletException
      * @throws IOException
-     * После успешной инициализации попадаем на страницу с обзором оценок, сейчас это все что доступно для простого
-     * пользователя, тогда как админу доступен сайдбар, где он может попасть на страницу редактирования студентов и т.д
      */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

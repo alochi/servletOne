@@ -55,14 +55,4 @@ public class StudentsDAOImpl implements StudentsDAO {
         statement.execute();
         connection.close();
     }
-
-    @Override
-    public void deleteStudentById(int id) throws SQLException {
-        Connection connection = connectionManager.getConnection();
-        PreparedStatement statement = connection.prepareStatement("DELETE FROM students " +
-                "WHERE id = ?");
-        statement.setInt(1, id);
-        statement.execute();
-        connection.close();
-    }
 }
