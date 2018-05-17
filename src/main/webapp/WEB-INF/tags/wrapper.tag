@@ -1,11 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ tag description="Wrapper Tag" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@include file="header.jsp" %>
+<c:import url="pageHeader.jsp" />
 <!-- BEGIN CONTENT -->
 <div class="page-container row-fluid">
 
     <% if ((Integer) request.getSession().getAttribute("role") == 1) {%>
-    <%@include file="sidebar.jsp"%>
+    <c:import url="pageSidebar.jsp" />
     <%}%>
 
     <!-- BEGIN PAGE CONTAINER-->
@@ -13,14 +14,11 @@
         <div class="content">
             <!-- BEGIN PAGE TITLE -->
             <div class="page-title">
-                <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+               <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
                 <h3>ADMIN Dashboard</h3>
-                <%@include file="reportStudents.jsp" %>
-                <br>
+                <jsp:doBody/>
                 <%}%>
-
-                <h3>User content...</h3>
-                <%@include file="reportMark.jsp" %>
+                <jsp:doBody/>
 
 
             </div>
@@ -32,4 +30,4 @@
     <!-- END PAGE CONTAINER -->
 </div>
 <!-- END CONTENT -->
-<%@include file="footer.jsp" %>
+<c:import url="pageFooter.jsp" />
