@@ -4,9 +4,6 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
     <meta charset="utf-8"/>
     <title>Title Goes Here</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta content="" name="description"/>
-    <meta content="" name="author"/>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="../assets/css/webarch.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,16 +14,9 @@
     <!-- BEGIN TOP NAVIGATION BAR -->
     <div class="navbar-inner">
         <div class="header-seperation">
-            <ul class="nav pull-left notifcation-center visible-xs visible-sm">
-                <li class="dropdown">
-                    <a href="#main-menu" data-webarch="toggle-left-side">
-                        <i class="material-icons">menu</i>
-                    </a>
-                </li>
-            </ul>
             <ul class="nav pull-right notifcation-center">
                 <li class="dropdown hidden-xs hidden-sm">
-                    <a href="index.html" class="dropdown-toggle active" data-toggle="">
+                    <a href="#" class="dropdown-toggle active" data-toggle="">
                         <i class="material-icons">home</i>
                     </a>
                 </li>
@@ -49,30 +39,8 @@
                     </li>
                 </ul>
             </div>
-            <div id="notification-list" style="display:none">
-                <div style="width:300px">
-                    <div class="notification-messages info">
-                        <div class="user-profile">
-                            <img src="../assets/img/d.jpg" alt="" data-src="../assets/img/d.jpg"
-                                 data-src-retina="../assets/img/d2x.jpg" width="35" height="35">
-                        </div>
-                        <div class="message-wrapper">
-                            <div class="heading">
-                                David Nester - Commented on your wall
-                            </div>
-                            <div class="description">
-                                Meeting postponed to tomorrow
-                            </div>
-                            <div class="date pull-left">
-                                A min ago
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-            </div>
             <!-- END TOP NAVIGATION MENU -->
-            <!-- BEGIN CHAT TOGGLER -->
+            <!-- BEGIN TOGGLER -->
             <div class="pull-right">
                 <div class="chat-toggler sm">
                     <h2 style="margin: 1px;">
@@ -89,7 +57,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- END CHAT TOGGLER -->
+            <!-- END TOGGLER -->
         </div>
         <!-- END TOP NAVIGATION MENU -->
     </div>

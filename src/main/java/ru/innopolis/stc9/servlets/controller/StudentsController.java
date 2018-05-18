@@ -18,6 +18,7 @@ public class StudentsController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<Students> students = studentsService.getStudents();
         req.setAttribute("students", students);
+        req.setAttribute("role", req.getSession().getAttribute("role"));
 
         req.getRequestDispatcher("/reportStudents.jsp").forward(req, resp);
     }

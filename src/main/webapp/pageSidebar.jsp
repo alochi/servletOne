@@ -1,5 +1,3 @@
-<%@ page import="ru.innopolis.stc9.servlets.pojo.Students" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- BEGIN SIDEBAR -->
@@ -36,17 +34,11 @@
         <!-- END SIDEBAR MENU -->
     </div>
 </div>
-<a href="#" class="scrollup">Scroll</a>
 <div class="footer-widget">
-    <div class="progress transparent progress-small no-radius no-margin">
-        <div class="progress-bar progress-bar-success animate-progress-bar" data-percentage="79%"
-             style="width: 79%;"></div>
-    </div>
     <div class="pull-right">
-        <div class="details-status"><span class="animate-number" data-value="100"
-                                          data-animation-duration="560">100</span>%
-        </div>
-        <a href="${pageContext.request.contextPath}/login?action=logout"><i
-                class="material-icons">power_settings_new</i></a></div>
+        <a href="${pageContext.request.contextPath}/login?action=logout">
+            <i class="material-icons">power_settings_new</i>
+        </a>
+    </div>
 </div>
 <!-- END SIDEBAR -->
