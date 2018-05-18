@@ -7,13 +7,13 @@ import ru.innopolis.stc9.servlets.pojo.Progress;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ItemServiceImpl implements ItemService {
+public class ProgressServiceImpl implements ProgressService {
     private ProgressDAO progressDAO = new ProgressDAOImpl();
 
     @Override
-    public ArrayList<Progress> getMarkById(int mark) {
+    public ArrayList<Progress> getProgressByMark(int greaterOrEqualMark, int lessOrEqualMark) {
         try {
-            return progressDAO.getMark(mark);
+            return progressDAO.getProgress(greaterOrEqualMark, lessOrEqualMark);
         } catch (SQLException e) {
             e.printStackTrace();
         }

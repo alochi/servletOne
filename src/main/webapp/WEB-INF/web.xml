@@ -14,12 +14,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ReportsController</servlet-name>
-        <servlet-class>ru.innopolis.stc9.servlets.controller.ReportsController</servlet-class>
+        <servlet-name>ProgressController</servlet-name>
+        <servlet-class>ru.innopolis.stc9.servlets.controller.ProgressController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ReportsController</servlet-name>
-        <url-pattern>/inner/mark</url-pattern>
+        <servlet-name>ProgressController</servlet-name>
+        <url-pattern>/inner/progress</url-pattern>
     </servlet-mapping>
 
     <servlet>

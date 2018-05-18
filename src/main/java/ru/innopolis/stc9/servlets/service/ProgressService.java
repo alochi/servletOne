@@ -4,6 +4,6 @@ import ru.innopolis.stc9.servlets.pojo.Progress;
 
 import java.util.ArrayList;
 
-public interface ItemService {
-    ArrayList<Progress> getMarkById(int mark);
+public interface ProgressService {
+    ArrayList<Progress> getProgressByMark(int greaterOrEqualMark, int lessOrEqualMark);
 }

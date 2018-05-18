@@ -19,7 +19,7 @@ public class ProgressDAOImpl implements ProgressDAO {
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();
 
     @Override
-    public ArrayList<Progress> getMark(int mark) throws SQLException {
+    public ArrayList<Progress> getProgress(int greaterOrEqualMark, int lessOrEqualMark) throws SQLException {
         ArrayList<Progress> result = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
         LOGGER.info(connection);
@@ -29,10 +29,9 @@ public class ProgressDAOImpl implements ProgressDAO {
                 "INNER JOIN students s2 ON progress.students_id = s2.id " +
                 "INNER JOIN exercises e3 ON progress.exercises_id = e3.id " +
                 "INNER JOIN subjects s4 ON e3.subjects_id = s4.id " +
-                "WHERE mark = ?");
-        LOGGER.info(statement);
-        LOGGER.info(mark);
-        statement.setInt(1, mark);
+                "WHERE mark >= ? AND mark <= ?");
+        statement.setInt(1, greaterOrEqualMark);
+        statement.setInt(2, lessOrEqualMark);
         ResultSet resultSet = statement.executeQuery();
         Progress progress = null;
         while (resultSet.next()) {

@@ -19,13 +19,13 @@
         <!-- END MINI-PROFILE -->
         <!-- BEGIN SIDEBAR MENU -->
         <a href="${pageContext.request.contextPath}/inner/students">
-            <p class="menu-title sm">STUDENTS <span class="pull-right">
+            <p class="menu-title sm">Список студентов <span class="pull-right">
                 <i class="material-icons">refresh</i></span>
             </p>
         </a>
 
-        <a href="${pageContext.request.contextPath}/inner/mark">
-            <p class="menu-title sm">MARKs <span class="pull-right">
+        <a href="${pageContext.request.contextPath}/inner/progress">
+            <p class="menu-title sm">Выборка по оценкам <span class="pull-right">
                 <i class="material-icons">refresh</i></span>
             </p>
         </a>

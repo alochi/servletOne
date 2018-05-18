@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
             Integer role = userService.getRole(login);
             req.getSession().setAttribute("login", login);
             req.getSession().setAttribute("role", role);
-            resp.sendRedirect(req.getContextPath() + "/inner/mark");
+            resp.sendRedirect(req.getContextPath() + "/inner/progress");
         } else {
             resp.sendRedirect(req.getContextPath() + "/login?errorMsg=authError");
         }

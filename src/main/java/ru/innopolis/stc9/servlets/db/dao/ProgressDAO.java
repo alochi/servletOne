@@ -9,6 +9,6 @@ import java.util.ArrayList;
  * Created by admin on 25.04.2018.
  */
 public interface ProgressDAO {
-    ArrayList<Progress> getMark(int id) throws SQLException;
+    ArrayList<Progress> getProgress(int greaterOrEqualMark, int lessOrEqualMark) throws SQLException;
     void deleteProgressById(int id) throws SQLException;
 }
