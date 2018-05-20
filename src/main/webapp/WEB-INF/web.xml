@@ -31,6 +31,15 @@
         <url-pattern>/inner/students</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ExercisesController</servlet-name>
+        <servlet-class>ru.innopolis.stc9.servlets.controller.ExercisesController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ExercisesController</servlet-name>
+        <url-pattern>/inner/exercises</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/assets/*</url-pattern>

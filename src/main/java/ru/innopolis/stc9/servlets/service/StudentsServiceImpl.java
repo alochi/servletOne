@@ -6,6 +6,9 @@ import ru.innopolis.stc9.servlets.pojo.Students;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class StudentsServiceImpl implements StudentsService {
@@ -18,7 +21,9 @@ public class StudentsServiceImpl implements StudentsService {
     @Override
     public ArrayList<Students> getStudents() {
         try {
-            return studentsDAO.getStudents();
+            ArrayList<Students> tempList = new ArrayList<>(studentsDAO.getStudents());
+            Collections.sort(tempList);
+            return tempList;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,6 +42,15 @@ public class StudentsServiceImpl implements StudentsService {
             } else {
                 throw new NullPointerException("Parameter student cannot be null");
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void addStudent(String nameStud, String loginStud, String passwordhashStud) {
+        try {
+            studentsDAO.addStudent(nameStud, loginStud, passwordhashStud);
         } catch (SQLException e) {
             e.printStackTrace();
         }

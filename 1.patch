@@ -1,0 +1,268 @@
+Index: src/main/webapp/report.jsp
+===================================================================
+--- src/main/webapp/report.jsp	(revision c0e907659db865be0251984783be7af350b49182)
++++ src/main/webapp/report.jsp	(revision c0e907659db865be0251984783be7af350b49182)
+@@ -1,35 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-
+-<%@include file="header.jsp" %>
+-<!-- BEGIN CONTENT -->
+-<div class="page-container row-fluid">
+-
+-    <% if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+-    <%@include file="sidebar.jsp"%>
+-    <%}%>
+-
+-    <!-- BEGIN PAGE CONTAINER-->
+-    <div class="page-content">
+-        <div class="content">
+-            <!-- BEGIN PAGE TITLE -->
+-            <div class="page-title">
+-                <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+-                <h3>ADMIN Dashboard</h3>
+-                <%@include file="reportStudents.jsp" %>
+-                <br>
+-                <%}%>
+-
+-                <h3>User content...</h3>
+-                <%@include file="reportMark.jsp" %>
+-
+-
+-            </div>
+-            <!-- END PAGE TITLE -->
+-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+-            <!-- END PLACE PAGE CONTENT HERE -->
+-        </div>
+-    </div>
+-    <!-- END PAGE CONTAINER -->
+-</div>
+-<!-- END CONTENT -->
+-<%@include file="footer.jsp" %>
+\ No newline at end of file
+Index: src/main/webapp/WEB-INF/tags/wrapper.tag
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/webapp/WEB-INF/tags/wrapper.tag	(date 1526563107406)
++++ src/main/webapp/WEB-INF/tags/wrapper.tag	(date 1526563107406)
+@@ -0,0 +1,33 @@
++<%@ tag description="Wrapper Tag" pageEncoding="UTF-8"%>
++<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
++
++<c:import url="pageHeader.jsp" />
++<!-- BEGIN CONTENT -->
++<div class="page-container row-fluid">
++
++    <% if ((Integer) request.getSession().getAttribute("role") == 1) {%>
++    <c:import url="pageSidebar.jsp" />
++    <%}%>
++
++    <!-- BEGIN PAGE CONTAINER-->
++    <div class="page-content">
++        <div class="content">
++            <!-- BEGIN PAGE TITLE -->
++            <div class="page-title">
++               <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
++                <h3>ADMIN Dashboard</h3>
++                <jsp:doBody/>
++                <%}%>
++                <jsp:doBody/>
++
++
++            </div>
++            <!-- END PAGE TITLE -->
++            <!-- BEGIN PlACE PAGE CONTENT HERE -->
++            <!-- END PLACE PAGE CONTENT HERE -->
++        </div>
++    </div>
++    <!-- END PAGE CONTAINER -->
++</div>
++<!-- END CONTENT -->
++<c:import url="pageFooter.jsp" />
+\ No newline at end of file
+Index: src/main/webapp/footer.jsp
+===================================================================
+--- src/main/webapp/footer.jsp	(revision c0e907659db865be0251984783be7af350b49182)
++++ src/main/webapp/pageFooter.jsp	(date 1526223284762)
+@@ -1,0 +1,0 @@
+Index: src/main/webapp/sidebar.jsp
+===================================================================
+--- src/main/webapp/sidebar.jsp	(revision c0e907659db865be0251984783be7af350b49182)
++++ src/main/webapp/pageSidebar.jsp	(date 1526558390913)
+@@ -1,0 +1,0 @@
+Index: src/main/webapp/reportStudents.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/webapp/reportStudents.jsp	(revision c0e907659db865be0251984783be7af350b49182)
++++ src/main/webapp/reportStudents.jsp	(date 1526562983691)
+@@ -1,64 +1,17 @@
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
++<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
+-<%@include file="header.jsp" %>
+-<!-- BEGIN CONTENT -->
+-<div class="page-container row-fluid">
+-
+-    <% if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+-    <%@include file="sidebar.jsp"%>
+-    <%}%>
+-
+-    <!-- BEGIN PAGE CONTAINER-->
+-    <div class="page-content">
+-        <div class="content">
+-            <!-- BEGIN PAGE TITLE -->
+-            <div class="page-title">
+-                <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+-                <h3>ADMIN Dashboard</h3>
+-
+-                <% //ArrayList<Students> students = (ArrayList) request.getAttribute("students");%>
+-                <div>
+-                    <table border="0">
+-                        <c:forEach items="${students}" var="stud">
+-                            <tr>
+-                                <td>${stud.name}</td>
+-                            </tr>
+-                        </c:forEach>
+-                    </table>
+-                </div>
+-
+-                <br>
+-                <%}%>
+-                <h3>User content...</h3>
+-                <form action="${pageContext.request.contextPath}/inner/mark" method="get">
+-                    <p><select name="mark">
+-                        <option disabled>Select mark</option>
+-                        <option selected value="5">5</option>
+-                        <option value="4">4</option>
+-                        <option value="3">3</option>
+-                        <option value="2">2</option>
+-                        <option value="0">Without mark</option>
+-                    </select></p>
+-                    <p><input type="submit" value="Send"></p>
+-                </form>
+-
+-                <table>
+-                    <c:forEach var="mark" items="${mark}">
+-                        <tr>
+-                            <td><c:out value="${mark}" /></td>
+-                        </tr>
+-                    </c:forEach>
+-                </table>
++<t:wrapper>
++    <c:if test="1 == 1">
++        <p>123</p>
++    </c:if>
++        <table border="0">
++            <c:forEach items="${students}" var="stud">
++                <tr>
++                    <td>${stud.name}</td>
++                </tr>
++            </c:forEach>
++        </table>
+ 
+-
+-            </div>
+-            <!-- END PAGE TITLE -->
+-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+-            <!-- END PLACE PAGE CONTENT HERE -->
+-        </div>
+-    </div>
+-    <!-- END PAGE CONTAINER -->
+-</div>
+-<!-- END CONTENT -->
+-<%@include file="footer.jsp" %>
++</t:wrapper>
+\ No newline at end of file
+Index: src/main/webapp/header.jsp
+===================================================================
+--- src/main/webapp/header.jsp	(revision c0e907659db865be0251984783be7af350b49182)
++++ src/main/webapp/pageHeader.jsp	(date 1526406478556)
+@@ -1,0 +1,0 @@
+Index: src/main/webapp/reportMark.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/webapp/reportMark.jsp	(revision c0e907659db865be0251984783be7af350b49182)
++++ src/main/webapp/reportMark.jsp	(date 1526560933746)
+@@ -1,53 +1,26 @@
+ <%@ page import="ru.innopolis.stc9.servlets.pojo.Progress" %>
+ <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+-
+-<%@include file="header.jsp" %>
+-<!-- BEGIN CONTENT -->
+-<div class="page-container row-fluid">
++<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
++<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 
+-    <% if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+-    <%@include file="sidebar.jsp"%>
+-    <%}%>
+-
+-    <!-- BEGIN PAGE CONTAINER-->
+-    <div class="page-content">
+-        <div class="content">
+-            <!-- BEGIN PAGE TITLE -->
+-            <div class="page-title">
+-                <%if ((Integer) request.getSession().getAttribute("role") == 1) {%>
+-                    <h3>ADMIN Dashboard</h3>
+-                    <br>
+-                <%}%>
+-                <h3>User content...</h3>
+-                <form action="${pageContext.request.contextPath}/inner/mark" method="get">
+-                    <p><select name="mark">
+-                        <option disabled>Select mark</option>
+-                        <option selected value="5">5</option>
+-                        <option value="4">4</option>
+-                        <option value="3">3</option>
+-                        <option value="2">2</option>
+-                        <option value="0">Without mark</option>
+-                    </select></p>
+-                    <p><input type="submit" value="Send"></p>
+-                </form>
++<t:wrapper>
++    <form action="${pageContext.request.contextPath}/inner/mark" method="get">
++        <p><select name="mark">
++            <option disabled>Select mark</option>
++            <option selected value="5">5</option>
++            <option value="4">4</option>
++            <option value="3">3</option>
++            <option value="2">2</option>
++            <option value="0">Without mark</option>
++        </select></p>
++        <p><input type="submit" value="Send"></p>
++    </form>
+ 
+-                <table>
+-                <c:forEach var="mark" items="${mark}">
+-                    <tr>
+-                        <td><c:out value="${mark}" /></td>
+-                    </tr>
+-                </c:forEach>
+-                </table>
+-
+-
+-            </div>
+-            <!-- END PAGE TITLE -->
+-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+-            <!-- END PLACE PAGE CONTENT HERE -->
+-        </div>
+-    </div>
+-    <!-- END PAGE CONTAINER -->
+-</div>
+-<!-- END CONTENT -->
+-<%@include file="footer.jsp" %>
++    <table>
++        <c:forEach var="mark" items="${mark}">
++            <tr>
++                <td><c:out value="${mark}"/></td>
++            </tr>
++        </c:forEach>
++    </table>
++</t:wrapper>
+\ No newline at end of file

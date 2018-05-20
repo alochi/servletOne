@@ -24,6 +24,12 @@
             </p>
         </a>
 
+        <a href="${pageContext.request.contextPath}/inner/exercises">
+            <p class="menu-title sm">Список занятий <span class="pull-right">
+                <i class="material-icons">refresh</i></span>
+            </p>
+        </a>
+
         <a href="${pageContext.request.contextPath}/inner/progress">
             <p class="menu-title sm">Выборка по оценкам <span class="pull-right">
                 <i class="material-icons">refresh</i></span>

@@ -17,12 +17,13 @@ public class StudentsDAOImpl implements StudentsDAO {
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();
 
     @Override
-    public void addStudent(Students student) throws SQLException {
+    public void addStudent(String nameStud, String loginStud, String passwordhashStud) throws SQLException {
         Connection connection = connectionManager.getConnection();
-        PreparedStatement statement = connection.prepareStatement("INSERT INTO students(id, name) " +
-                "VALUES (?, ?)");
-        statement.setInt(1, student.getId());
-        statement.setString(2, student.getName());
+        PreparedStatement statement = connection.prepareStatement("INSERT INTO students(name, login, passwordhash) " +
+                "VALUES (?, ?, ?)");
+        statement.setString(1, nameStud);
+        statement.setString(2, loginStud);
+        statement.setString(3, passwordhashStud);
         statement.execute();
         connection.close();
     }
@@ -32,13 +33,15 @@ public class StudentsDAOImpl implements StudentsDAO {
         ArrayList<Students> result = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT * " +
-                "FROM students");
+                "FROM students WHERE role=2");
         ResultSet resultSet = statement.executeQuery();
         Students student = null;
         while (resultSet.next()) {
             student = new Students(
                     resultSet.getInt("id"),
-                    resultSet.getString("name"));
+                    resultSet.getString("name"),
+                    resultSet.getString("login"),
+                    resultSet.getString("passwordhash"));
             result.add(student);
         }
         connection.close();
@@ -49,9 +52,11 @@ public class StudentsDAOImpl implements StudentsDAO {
     public void updateStudent(Students student) throws SQLException {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("UPDATE students " +
-                "SET name = ? WHERE id = ?");
+                "SET name = ?, login = ?, passwordhash = ? WHERE id = ?");
         statement.setString(1, student.getName());
-        statement.setInt(2, student.getId());
+        statement.setString(2, student.getLogin());
+        statement.setString(3, student.getPasswordhash());
+        statement.setInt(4, student.getId());
         statement.execute();
         connection.close();
     }

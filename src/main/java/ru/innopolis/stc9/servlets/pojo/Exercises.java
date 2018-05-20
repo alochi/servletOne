@@ -1,18 +1,22 @@
 package ru.innopolis.stc9.servlets.pojo;
 
-import java.util.Date;
-
 /**
  * Created by admin on 25.04.2018.
  */
 public class Exercises {
     private int id;
     private int subjects_id;
-    private Date date;
+    private String date;
     private String exercise;
 
-    public Exercises(int id, int subjects_id, Date date, String exercise) {
+    public Exercises(int id, int subjects_id, String date, String exercise) {
         this.id = id;
+        this.subjects_id = subjects_id;
+        this.date = date;
+        this.exercise = exercise;
+    }
+
+    public Exercises(int subjects_id, String date, String exercise) {
         this.subjects_id = subjects_id;
         this.date = date;
         this.exercise = exercise;
@@ -34,11 +38,11 @@ public class Exercises {
         this.subjects_id = subjects_id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

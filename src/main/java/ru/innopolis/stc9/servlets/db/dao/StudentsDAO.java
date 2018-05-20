@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by admin on 24.04.2018.
  */
 public interface StudentsDAO {
-    void addStudent(Students student) throws SQLException;
+    void addStudent(String nameStud, String loginStud, String passwordhashStud) throws SQLException;
     ArrayList<Students> getStudents() throws SQLException;
     void updateStudent(Students student) throws SQLException;
 }

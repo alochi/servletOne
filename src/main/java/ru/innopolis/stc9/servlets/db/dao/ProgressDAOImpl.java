@@ -50,13 +50,4 @@ public class ProgressDAOImpl implements ProgressDAO {
         return result;
     }
 
-    @Override
-    public void deleteProgressById(int id) throws SQLException {
-        Connection connection = connectionManager.getConnection();
-        PreparedStatement statement = connection.prepareStatement("DELETE FROM progress " +
-                "WHERE id = ?");
-        statement.setInt(1, id);
-        statement.execute();
-        connection.close();
-    }
 }
