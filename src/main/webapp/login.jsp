@@ -15,8 +15,9 @@
           <form action="${pageContext.request.contextPath}/login" class="login-form validate" id="login-form" method="post" name="login-form">
             <div class="row">
               <div class="form-group col-md-10">
-                <label class="form-label">Username</label>
-                <input class="form-control" id="txtusername" name="userName" type="text" value="admin" required>
+                <label class="form-label">Username</label><br>
+                учетная пользователя, например, 012 - 0 или vasyan - idkfa
+                <input class="form-control" id="txtusername" name="userName" type="text" value="teacher" required>
               </div>
             </div>
             <div class="row">

@@ -12,6 +12,12 @@ import java.sql.SQLException;
 public class UsersDAOImpl implements UsersDAO {
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();
 
+    /**
+     * UNION чтобы объединить 2 таблицы users и students
+     * @param login
+     * @return
+     * @throws SQLException
+     */
     @Override
     public Users getUserByLogin(String login) throws SQLException {
         Users result = null;
@@ -19,8 +25,14 @@ public class UsersDAOImpl implements UsersDAO {
         PreparedStatement preparedStatement = null;
         preparedStatement = connection.prepareStatement("SELECT * " +
                 "FROM users " +
+                "WHERE login=? " +
+                "UNION " +
+                "SELECT id, login, passwordhash, role " +
+                "FROM students " +
                 "WHERE login=?");
+
         preparedStatement.setString(1, login);
+        preparedStatement.setString(2, login);
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
             result = new Users(resultSet.getInt("id"), resultSet.getString("login"),

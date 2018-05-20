@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * DAO нужен только для вывода списка при добавлении нового занятия
+ * DAO нужен только для вывода списка при добавлении нового занятия Exercises
  */
 public class SubjectsDAOImpl implements SubjectsDAO{
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();

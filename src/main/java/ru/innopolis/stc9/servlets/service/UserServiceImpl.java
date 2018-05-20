@@ -1,5 +1,7 @@
 package ru.innopolis.stc9.servlets.service;
 
+import ru.innopolis.stc9.servlets.db.dao.StudentsDAO;
+import ru.innopolis.stc9.servlets.db.dao.StudentsDAOImpl;
 import ru.innopolis.stc9.servlets.db.dao.UsersDAO;
 import ru.innopolis.stc9.servlets.db.dao.UsersDAOImpl;
 import ru.innopolis.stc9.servlets.pojo.Users;
@@ -8,6 +10,8 @@ import java.sql.SQLException;
 
 public class UserServiceImpl implements UserService {
     private static UsersDAO usersDAO = new UsersDAOImpl();
+    private static StudentsDAO studentsDAO = new StudentsDAOImpl();
+
 
     @Override
     public boolean checkAuth(String login, String password) {

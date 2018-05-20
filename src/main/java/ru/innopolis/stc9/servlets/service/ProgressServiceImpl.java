@@ -11,13 +11,22 @@ public class ProgressServiceImpl implements ProgressService {
     private ProgressDAO progressDAO = new ProgressDAOImpl();
 
     @Override
-    public ArrayList<Progress> getProgressByMark(int greaterOrEqualMark, int lessOrEqualMark) {
+    public ArrayList<Progress> getProgressByMark(int greaterOrEqualMark, int lessOrEqualMark, String login) {
         try {
-            return progressDAO.getProgress(greaterOrEqualMark, lessOrEqualMark);
+            return progressDAO.getProgress(greaterOrEqualMark, lessOrEqualMark, login);
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void addMark(String student_id, String edate, String mark, String attendance) {
+        try {
+            progressDAO.addMark(student_id, edate, mark, attendance);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

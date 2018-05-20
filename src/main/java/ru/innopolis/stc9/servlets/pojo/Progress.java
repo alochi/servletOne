@@ -8,15 +8,17 @@ import java.util.Date;
 public class Progress {
     private int id;
     private String students_name;
+    private String login;
     private String exercises_name;
     private int mark;
     private boolean attendance;
     private Date date;
     private String subject;
 
-    public Progress(int id, String students_name, String exercises_name, int mark, boolean attendance, Date date, String subject) {
+    public Progress(int id, String students_name, String login, String exercises_name, int mark, boolean attendance, Date date, String subject) {
         this.id = id;
         this.students_name = students_name;
+        this.login = login;
         this.exercises_name = exercises_name;
         this.mark = mark;
         this.attendance = attendance;
@@ -38,6 +40,14 @@ public class Progress {
 
     public void setStudents_name(String students_name) {
         this.students_name = students_name;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getExercises_name() {

@@ -41,4 +41,25 @@ public class ExercisesDAOImpl implements ExercisesDAO {
         connection.close();
         return result;
     }
+
+    @Override
+    public ArrayList<Exercises> getExercises(String date) throws SQLException {
+        ArrayList<Exercises> result = new ArrayList<>();
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement("SELECT * " +
+                "FROM exercises WHERE date LIKE ?");
+        statement.setString(1, date);
+        ResultSet resultSet = statement.executeQuery();
+        Exercises exercise = null;
+        while (resultSet.next()) {
+            exercise = new Exercises(
+                    resultSet.getInt("id"),
+                    resultSet.getInt("subjects_id"),
+                    resultSet.getString("date"),
+                    resultSet.getString("exercise"));
+            result.add(exercise);
+        }
+        connection.close();
+        return result;
+    }
 }

@@ -3,7 +3,7 @@ package ru.innopolis.stc9.servlets.pojo;
 /**
  * Created by admin on 25.04.2018.
  */
-public class Exercises {
+public class Exercises implements Comparable<Exercises> {
     private int id;
     private int subjects_id;
     private String date;
@@ -52,5 +52,10 @@ public class Exercises {
 
     public void setExercise(String exercise) {
         this.exercise = exercise;
+    }
+
+    @Override
+    public int compareTo(Exercises exercises) {
+        return this.getId() - exercises.getId();
     }
 }

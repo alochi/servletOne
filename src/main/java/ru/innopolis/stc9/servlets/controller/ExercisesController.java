@@ -21,6 +21,14 @@ public class ExercisesController extends HttpServlet {
     private ExercisesService exercisesService = new ExercisesServiceImpl();
     private SubjectsService subjectsService = new SubjectsServiceImpl();
 
+    /**
+     * subjects нам нужен для формирования выпадающего списка в форме добавления новой записи (60 строка reportExercises.jsp)
+     * В остальном выводим таблицу
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<Subjects> subjects = subjectsService.getSubjects();
@@ -32,6 +40,13 @@ public class ExercisesController extends HttpServlet {
         req.getRequestDispatcher("/reportExercises.jsp").forward(req, resp);
     }
 
+    /**
+     * Собираем данные со страницы, формируем объект Exercises, закидываем в exercisesService
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if ("addForm".equals(req.getParameter("form"))) {
@@ -39,7 +54,7 @@ public class ExercisesController extends HttpServlet {
             String date = req.getParameter("date");
             String exercise = req.getParameter("exercise");
             Exercises exer = new Exercises(subject_id, date, exercise);
-            if (exer != null) {
+            if (!exercise.equals("")) {
                 exercisesService.addExercise(exer);
             }
         }

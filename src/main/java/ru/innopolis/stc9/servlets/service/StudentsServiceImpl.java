@@ -16,7 +16,7 @@ public class StudentsServiceImpl implements StudentsService {
 
     /**
      * Возвращаем список студентов
-     * @return
+     *
      */
     @Override
     public ArrayList<Students> getStudents() {
@@ -32,7 +32,7 @@ public class StudentsServiceImpl implements StudentsService {
 
     /**
      * Редактируем студента
-     * @param student
+     *
      */
     @Override
     public void editStudent(Students student) {

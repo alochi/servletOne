@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by admin on 24.04.2018.
+ * добавление, обновление и вывод всех записей
  */
 public class StudentsDAOImpl implements StudentsDAO {
     private static ConnectionManager connectionManager = ConnectionManagerImpl.getInstance();

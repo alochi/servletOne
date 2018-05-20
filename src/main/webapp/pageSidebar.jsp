@@ -19,19 +19,19 @@
         <!-- END MINI-PROFILE -->
         <!-- BEGIN SIDEBAR MENU -->
         <a href="${pageContext.request.contextPath}/inner/students">
-            <p class="menu-title sm">Список студентов <span class="pull-right">
+            <p class="menu-title sm" style="color:#fff;">Список студентов <span class="pull-right">
                 <i class="material-icons">refresh</i></span>
             </p>
         </a>
 
         <a href="${pageContext.request.contextPath}/inner/exercises">
-            <p class="menu-title sm">Список занятий <span class="pull-right">
+            <p class="menu-title sm" style="color:#fff;">Список занятий <span class="pull-right">
                 <i class="material-icons">refresh</i></span>
             </p>
         </a>
 
         <a href="${pageContext.request.contextPath}/inner/progress">
-            <p class="menu-title sm">Выборка по оценкам <span class="pull-right">
+            <p class="menu-title sm" style="color:#fff;">Выборка по оценкам <span class="pull-right">
                 <i class="material-icons">refresh</i></span>
             </p>
         </a>
