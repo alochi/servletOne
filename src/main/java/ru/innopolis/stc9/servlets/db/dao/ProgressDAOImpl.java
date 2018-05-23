@@ -23,16 +23,10 @@ public class ProgressDAOImpl implements ProgressDAO {
      * @return
      * @throws SQLException
      */
-    //TODO Явно идет проверка на админа
     @Override
     public ArrayList<Progress> getProgress(int greaterOrEqualMark, int lessOrEqualMark, String login) throws SQLException {
         ArrayList<Progress> result = new ArrayList<>();
         Connection connection = connectionManager.getConnection();
-        LOGGER.info(connection);
-        String sqlLogin = "";
-        if (!login.equals("teacher")) {
-            sqlLogin = " AND s2.login LIKE ?";
-        }
 
         PreparedStatement statement = connection.prepareStatement("SELECT " +
                 "progress.id, mark, attendance, s2.name stud, s2.login studlogin, e3.exercise exer, date, s4.subject " +
@@ -40,10 +34,10 @@ public class ProgressDAOImpl implements ProgressDAO {
                 "INNER JOIN students s2 ON progress.students_id = s2.id " +
                 "INNER JOIN exercises e3 ON progress.exercises_id = e3.id " +
                 "INNER JOIN subjects s4 ON e3.subjects_id = s4.id " +
-                "WHERE mark >= ? AND mark <= ?" + sqlLogin);
+                "WHERE mark >= ? AND mark <= ?" + sqlLogin(login));
         statement.setInt(1, greaterOrEqualMark);
         statement.setInt(2, lessOrEqualMark);
-        if (!login.equals("teacher")) {
+        if (isNotTeacher(login)) {
             statement.setString(3, login);
         }
         ResultSet resultSet = statement.executeQuery();
@@ -61,8 +55,25 @@ public class ProgressDAOImpl implements ProgressDAO {
             result.add(progress);
         }
         connection.close();
-        LOGGER.info(connection);
         return result;
+    }
+
+    /**
+     * Если не учитель то добавляем условие, чтобы каждый студент мог видеть только свои данные)
+     * @param login
+     * @return
+     */
+    private String sqlLogin(String login) {
+        String sql = "";
+        if (isNotTeacher(login)) {
+            sql = " AND s2.login LIKE ?";
+        }
+        return sql;
+    }
+
+    //TODO Явно идет проверка на "teacher"
+    private boolean isNotTeacher(String login) {
+        return !login.equals("teacher");
     }
 
     @Override

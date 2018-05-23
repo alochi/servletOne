@@ -8,5 +8,4 @@ import java.util.ArrayList;
 public interface ExercisesDAO {
     void addExercise(Exercises exercise) throws SQLException;
     ArrayList<Exercises> getExercises() throws SQLException;
-    ArrayList<Exercises> getExercises(String date) throws SQLException;
 }

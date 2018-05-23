@@ -6,6 +6,5 @@ import java.util.ArrayList;
 
 public interface ExercisesService {
     ArrayList<Exercises> getExercises();
-    ArrayList<Exercises> getExercises(String date);
     void addExercise(Exercises exercise);
 }

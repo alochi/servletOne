@@ -24,16 +24,6 @@ public class ExercisesServiceImpl implements ExercisesService {
     }
 
     @Override
-    public ArrayList<Exercises> getExercises(String date) {
-        try {
-            return exercisesDAO.getExercises(date);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
     public void addExercise(Exercises exercise) {
         try {
             exercisesDAO.addExercise(exercise);
